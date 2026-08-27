@@ -23,13 +23,23 @@
 
     <main class="shell">
       <header class="hero">
-        <div>
-          <p class="eyebrow">DAEGU · JINJU FORECAST</p>
-          <h1>오늘의 하늘을<br /><span>가볍게 읽어요.</span></h1>
+        <div class="hero-copy">
+          <p class="eyebrow">JINJU · DAEGU FORECAST</p>
+          <h1>오늘 날씨는<br /><span>제가 알려드릴게요.</span></h1>
+          <div class="hero-meta">
+            <p id="today">날짜를 불러오는 중</p>
+            <p class="updated" id="updated">데이터 확인 중</p>
+          </div>
         </div>
-        <div class="hero-meta">
-          <p id="today">날짜를 불러오는 중</p>
-          <p class="updated" id="updated">데이터 확인 중</p>
+        <div class="presenter">
+          <div class="speech-bubble" id="weather-message" role="status">
+            잠깐만요! 진주와 대구의 최신 날씨를 확인하고 있어요.
+          </div>
+          <img
+            src="assets/weather-guide.jpeg"
+            alt="분홍색 딸기 무늬 옷을 입고 날씨를 안내하는 캐릭터"
+            class="presenter-image"
+          />
         </div>
       </header>
 

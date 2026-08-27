@@ -6,6 +6,7 @@ const DATASETS = [
 const grid = document.querySelector("#weather-grid");
 const today = document.querySelector("#today");
 const updated = document.querySelector("#updated");
+const weatherMessage = document.querySelector("#weather-message");
 
 today.textContent = new Intl.DateTimeFormat("ko-KR", {
   year: "numeric",
@@ -46,6 +47,18 @@ function formatForecastTime(value) {
 
 function weatherSymbol(precipitation) {
   return Number(precipitation) > 0 ? "☂" : "☀";
+}
+
+function createWeatherMessage(datasets) {
+  const summaries = datasets.map((rows) => {
+    const latest = rows.at(-1);
+    const rain = Number(latest.precipitation) > 0
+      ? `비가 ${latest.precipitation}mm 올 예정이에요`
+      : "비 소식은 없어요";
+    return `${latest.location}는 ${latest.temperature_2m}도이고 ${rain}`;
+  });
+
+  return `${summaries.join(" · ")}. 외출 전 바람도 꼭 확인하세요!`;
 }
 
 function renderForecast(row) {
@@ -103,6 +116,7 @@ async function loadWeather() {
     );
 
     grid.innerHTML = datasets.map(renderCity).join("");
+    weatherMessage.textContent = createWeatherMessage(datasets);
 
     const collectedAt = new Date(datasets[0].at(-1).collected_at);
     updated.textContent = `수집 ${new Intl.DateTimeFormat("ko-KR", {
@@ -119,6 +133,7 @@ async function loadWeather() {
         <p>index.html 파일을 직접 열지 말고 로컬 웹 서버를 통해 접속해 주세요.</p>
       </article>`;
     updated.textContent = "데이터를 불러오지 못함";
+    weatherMessage.textContent = "날씨 정보를 가져오지 못했어요. 잠시 후 다시 확인해 주세요.";
   }
 }
 
