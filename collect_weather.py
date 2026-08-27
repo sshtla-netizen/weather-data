@@ -186,7 +186,10 @@ def main() -> int:
                 / f"{location.slug}_{collected_at.date().isoformat()}.csv"
             )
             write_csv_atomic(output_path, rows)
+            latest_path = OUTPUT_ROOT / location.slug / "latest.csv"
+            write_csv_atomic(latest_path, rows)
             print(f"Wrote {len(rows)} rows to {output_path}")
+            print(f"Updated latest forecast at {latest_path}")
     except CollectionError as exc:
         print(f"Collection failed: {exc}", file=__import__("sys").stderr)
         return 1

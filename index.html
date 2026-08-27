@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="대구와 진주의 최신 시간별 날씨 예보를 확인하는 간단한 날씨 앱"
+    />
+    <title>하늘결 · 대구와 진주 날씨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Manrope:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="sky-orb sky-orb--one" aria-hidden="true"></div>
+    <div class="sky-orb sky-orb--two" aria-hidden="true"></div>
+
+    <main class="shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">DAEGU · JINJU FORECAST</p>
+          <h1>오늘의 하늘을<br /><span>가볍게 읽어요.</span></h1>
+        </div>
+        <div class="hero-meta">
+          <p id="today">날짜를 불러오는 중</p>
+          <p class="updated" id="updated">데이터 확인 중</p>
+        </div>
+      </header>
+
+      <section class="weather-grid" id="weather-grid" aria-live="polite">
+        <article class="loading-card">
+          <div class="loader" aria-hidden="true"></div>
+          <p>최신 예보를 읽고 있어요.</p>
+        </article>
+      </section>
+
+      <footer>
+        <p>시간별 예보 · 기온 · 습도 · 강수 · 바람 · 미세먼지</p>
+        <a href="https://github.com/sshtla-netizen/weather-data" target="_blank" rel="noreferrer">
+          데이터 저장소 보기 <span aria-hidden="true">↗</span>
+        </a>
+      </footer>
+    </main>
+  </body>
+</html>

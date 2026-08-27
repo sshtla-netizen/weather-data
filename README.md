@@ -36,12 +36,26 @@ Open-Meteo에서 진주와 대구의 시간별 날씨 및 미세먼지 예보를
 ```text
 data/
 ├── jinju/
-│   └── jinju_YYYY-MM-DD.csv
+│   ├── jinju_YYYY-MM-DD.csv
+│   └── latest.csv
 └── daegu/
-    └── daegu_YYYY-MM-DD.csv
+    ├── daegu_YYYY-MM-DD.csv
+    └── latest.csv
 ```
 
-같은 날짜에 프로그램을 다시 실행하면 행을 누적하지 않고 해당 날짜의 파일을 최신 예보로 교체합니다. CSV는 Excel에서 한글을 인식하기 쉽도록 UTF-8 BOM 인코딩으로 저장합니다.
+같은 날짜에 프로그램을 다시 실행하면 행을 누적하지 않고 해당 날짜의 파일을 최신 예보로 교체합니다. 각 지역의 `latest.csv`는 날씨 웹 앱이 사용하는 최신 예보 사본이며 수집할 때마다 함께 갱신됩니다. CSV는 Excel에서 한글을 인식하기 쉽도록 UTF-8 BOM 인코딩으로 저장합니다.
+
+## 날씨 웹 앱
+
+저장소 루트의 `index.html`을 통해 대구와 진주의 최신 시간별 예보 2개를 확인할 수 있습니다. 앱은 각 지역의 `latest.csv`를 읽으므로 매일 자동 수집이 완료되면 별도의 코드 변경 없이 최신 데이터가 반영됩니다.
+
+로컬에서는 파일을 직접 열지 말고 웹 서버로 실행해야 합니다.
+
+```bash
+python3 -m http.server 8000
+```
+
+실행 후 `http://localhost:8000`에 접속합니다.
 
 ## 로컬 실행
 
