@@ -1,6 +1,6 @@
 const DATASETS = [
-  { city: "대구", path: "data/daegu/latest.csv" },
   { city: "진주", path: "data/jinju/latest.csv" },
+  { city: "대구", path: "data/daegu/latest.csv" },
 ];
 
 const grid = document.querySelector("#weather-grid");
