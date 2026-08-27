@@ -129,15 +129,24 @@ h1 span {
   content: "";
 }
 
-.presenter-image {
+.presenter-character {
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 100%;
+  width: 54%;
   height: 100%;
-  object-fit: cover;
-  object-position: 8% center;
+  overflow: hidden;
+}
+
+.presenter-image {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: auto;
+  max-width: none;
+  height: 100%;
   mix-blend-mode: multiply;
+  transform: translateX(-50%);
 }
 
 .speech-bubble {
@@ -145,7 +154,7 @@ h1 span {
   z-index: 2;
   top: 24px;
   left: 24px;
-  width: min(62%, 260px);
+  width: calc(44% - 30px);
   padding: 17px 18px;
   border: 1px solid rgba(255, 255, 255, 0.95);
   border-radius: 20px 20px 20px 6px;
@@ -382,13 +391,13 @@ footer a:focus-visible {
   }
 
   .presenter-image {
-    object-position: 0 center;
+    left: 52%;
   }
 
   .speech-bubble {
     top: 16px;
     left: 16px;
-    width: 52%;
+    width: calc(46% - 20px);
     padding: 13px 14px;
     font-size: 0.82rem;
   }
