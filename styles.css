@@ -131,6 +131,7 @@ h1 span {
 
 .presenter-character {
   position: absolute;
+  z-index: 1;
   right: 0;
   bottom: 0;
   width: 54%;
@@ -140,12 +141,13 @@ h1 span {
 
 .presenter-image {
   position: absolute;
+  display: block;
   bottom: 0;
   left: 50%;
   width: auto;
   max-width: none;
   height: 100%;
-  mix-blend-mode: multiply;
+  pointer-events: none;
   transform: translateX(-50%);
 }
 
